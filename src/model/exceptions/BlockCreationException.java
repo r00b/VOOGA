@@ -14,7 +14,7 @@ public class BlockCreationException extends Exception implements Alert {
     }
 
     @Override
-    public String getMessage () {
+    public String getMessage() {
         return String.format(BLOCK_CREATION);
     }
 }

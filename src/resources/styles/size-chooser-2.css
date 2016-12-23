@@ -1,46 +1,48 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
+
 #header {
-	-fx-font-family: 'Roboto';
-	-fx-font-weight: 700;
+    -fx-font-family: 'Roboto';
+    -fx-font-weight: 700;
 }
+
 #prompt {
-	-fx-font-family: 'Roboto';
-	-fx-font-weight: 700;
+    -fx-font-family: 'Roboto';
+    -fx-font-weight: 700;
 }
 
 #input-direction {
-	-fx-font-family: 'Roboto';
-	-fx-font-weight: 400;
+    -fx-font-family: 'Roboto';
+    -fx-font-weight: 400;
 }
 
 #input {
-	-fx-font-family: 'Roboto';
-	-fx-font-size: 14px;
-	-fx-background-color: black;
-	-fx-border-radius: 5px;
- 	-fx-text-fill: white;
+    -fx-font-family: 'Roboto';
+    -fx-font-size: 14px;
+    -fx-background-color: black;
+    -fx-border-radius: 5px;
+    -fx-text-fill: white;
 }
 
 #create {
-	-fx-font-family: 'Roboto';
-	-fx-font-size: 16px;
-	-fx-font-weight: 700;
-	-fx-background-color: #282828;
-	-fx-border-color: white;
-	-fx-border-style: solid;
-	-fx-border-width: 2px;
-	-fx-text-fill: white;
+    -fx-font-family: 'Roboto';
+    -fx-font-size: 16px;
+    -fx-font-weight: 700;
+    -fx-background-color: #282828;
+    -fx-border-color: white;
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-text-fill: white;
 }
 
 #create:hover {
-	-fx-font-family: 'Roboto';
-	-fx-font-weight: 700;
-	-fx-font-size: 16px;
-	-fx-background-color: #89CFF0;
-	-fx-border-color: #89CFF0;
-	-fx-border-style: solid;
-	-fx-border-width: 2px;
-	-fx-text-fill: white;
+    -fx-font-family: 'Roboto';
+    -fx-font-weight: 700;
+    -fx-font-size: 16px;
+    -fx-background-color: #89CFF0;
+    -fx-border-color: #89CFF0;
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-text-fill: white;
 }
 
 #size-chooser-button:hover {

@@ -14,14 +14,15 @@ import model.interactions.Interaction;
 
 /**
  * This is the class that holds all of the information corresponding to the model.player on the backend.
+ *
  * @author Aninda Manocha
  */
 
 @XStreamAlias("player")
 public class PlayerInstance implements Player {
-	
-	@XStreamOmitField
-	public static final int DEFAULT_NUM_POKEMON = 3;
+
+    @XStreamOmitField
+    public static final int DEFAULT_NUM_POKEMON = 3;
 
     private List<String> myNames;
     private String myPlayerName;
@@ -29,32 +30,32 @@ public class PlayerInstance implements Player {
     private int myCol;
     private int myGridIndex;
     private PlayerDirection myDirection;
-	private List<PlayerAttribute> myAttributes;
-	private List<Item> myInventory;
-	private List<Battle> myBattleHistory;
-	private List<Interaction> myInteractionHistory;
+    private List<PlayerAttribute> myAttributes;
+    private List<Item> myInventory;
+    private List<Battle> myBattleHistory;
+    private List<Interaction> myInteractionHistory;
     private int battlesWon;
     private int battlesLost;
-	private double health;
+    private double health;
     private int numPokemon;
 
-	public PlayerInstance(List<String> names, String playerName, int row, int col, int gridIndex) {
-		myNames = names;
-		myPlayerName = playerName;
-		myRow = row;
-		myCol = col;
-		myGridIndex = gridIndex;
+    public PlayerInstance(List<String> names, String playerName, int row, int col, int gridIndex) {
+        myNames = names;
+        myPlayerName = playerName;
+        myRow = row;
+        myCol = col;
+        myGridIndex = gridIndex;
         myDirection = PlayerDirection.SOUTH;
-		myAttributes = new ArrayList<>();
-		myInventory = new ArrayList<>();
-		myBattleHistory = new ArrayList<>();
-		myInteractionHistory = new ArrayList<>();
-		battlesWon = battlesLost = 0;
-		health = DEFAULT_HEALTH;
+        myAttributes = new ArrayList<>();
+        myInventory = new ArrayList<>();
+        myBattleHistory = new ArrayList<>();
+        myInteractionHistory = new ArrayList<>();
+        battlesWon = battlesLost = 0;
+        health = DEFAULT_HEALTH;
         numPokemon = DEFAULT_NUM_POKEMON;
-	}
+    }
 
-	public PlayerInstance(Player player) {
+    public PlayerInstance(Player player) {
         myNames = player.getNames();
         myPlayerName = player.getPlayerName();
         myRow = player.getRow();
@@ -80,7 +81,7 @@ public class PlayerInstance implements Player {
         return myPlayerName;
     }
 
-	public int getRow() {
+    public int getRow() {
         return myRow;
     }
 
@@ -112,11 +113,11 @@ public class PlayerInstance implements Player {
         return myInteractionHistory;
     }
 
-    public int getBattlesWon(){
+    public int getBattlesWon() {
         return battlesWon;
     }
 
-    public int getBattlesLost(){
+    public int getBattlesLost() {
         return battlesLost;
     }
 
@@ -124,18 +125,18 @@ public class PlayerInstance implements Player {
         return health;
     }
 
-    public int getNumPokemon(){
+    public int getNumPokemon() {
         return numPokemon;
     }
 
 	/* SETTERS */
 
     public void setRow(int row) {
-		myRow = row;
+        myRow = row;
     }
 
     public void setCol(int col) {
-		myCol = col;
+        myCol = col;
     }
 
     public void setGridIndex(int gridIndex) {
@@ -168,11 +169,11 @@ public class PlayerInstance implements Player {
         myInteractionHistory.add(interaction);
     }
 
-    public void incrementBattlesWon(){
+    public void incrementBattlesWon() {
         battlesWon++;
     }
 
-    public void incrementBattlesLost(){
+    public void incrementBattlesLost() {
         battlesLost++;
     }
 
@@ -180,11 +181,11 @@ public class PlayerInstance implements Player {
         this.health = health;
     }
 
-    public void incrementNumPokemon(){
+    public void incrementNumPokemon() {
         numPokemon++;
     }
 
-    public void decrementNumPokemon(){
+    public void decrementNumPokemon() {
         numPokemon--;
     }
 }

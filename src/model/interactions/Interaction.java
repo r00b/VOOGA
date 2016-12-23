@@ -2,6 +2,7 @@ package model.interactions;
 
 import api.Player;
 import model.block.BlockUpdate;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import java.util.List;
  * All model.interactions are to be used as classes that are going to be composed with board ui.scenes.controller.editor.objects.
  * These board ui.scenes.controller.editor.objects will interact with the model.player as dictated by the interaction class(es)
  * with which they are composed.
+ *
  * @author Filip Mazurek, Aninda Manocha
  */
 

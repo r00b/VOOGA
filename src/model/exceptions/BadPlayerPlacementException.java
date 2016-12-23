@@ -18,7 +18,7 @@ public class BadPlayerPlacementException extends Exception implements Alert {
     }
 
     @Override
-    public String getMessage () {
+    public String getMessage() {
         return String.format(BAD_PLAYER_PLACEMENT, Integer.toString(myRow), Integer.toString(myColumn));
     }
 }

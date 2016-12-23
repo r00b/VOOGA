@@ -19,6 +19,7 @@ import java.util.List;
 /**
  * This is the controller for the game controller.editor. It allows the backend and frontend to talk to each other while the controller.editor
  * is being created.
+ *
  * @author Aninda Manocha, Filip Mazurek
  */
 
@@ -45,6 +46,7 @@ public class EditorController implements Controller {
     /**
      * Adds a new model.grid in the controller.editor where the user can place more objects. The model.grid is initially set to contain only
      * blocks of grass.
+     *
      * @param numRows - the number of rows in the new model.grid
      * @param numCols - the number of columns in the new model.grid
      */
@@ -55,6 +57,7 @@ public class EditorController implements Controller {
 
     /**
      * Changes to a different specified model.grid, identified by its index in the list of grids
+     *
      * @param index - the index of the model.grid
      */
     public void changeGrid(int index) {
@@ -65,8 +68,9 @@ public class EditorController implements Controller {
     /**
      * Changes the size of the current model.grid in a specified direction and by a specified amount. If the amount is
      * positive, the model.grid grows and if the amount is negative, the model.grid shrinks.
+     *
      * @param direction - the direction in which the size changes
-     * @param amount - the amount by which the model.grid size in the specified direction should change
+     * @param amount    - the amount by which the model.grid size in the specified direction should change
      * @return whether or not the model.grid was changed
      */
     public boolean changeGridSize(GridSizeDirection direction, int amount) {
@@ -85,6 +89,7 @@ public class EditorController implements Controller {
 
     /**
      * Gets the number of rows in the current model.grid
+     *
      * @return the number of rows
      */
     public int getNumRows() {
@@ -93,6 +98,7 @@ public class EditorController implements Controller {
 
     /**
      * Gets the number of columns in the current model.grid
+     *
      * @return the number of columns
      */
     public int getNumCols() {
@@ -101,6 +107,7 @@ public class EditorController implements Controller {
 
     /**
      * Adds music to the game
+     *
      * @param file - the name of the music file
      */
     public void addMusic(String file) {
@@ -111,16 +118,16 @@ public class EditorController implements Controller {
 
     /**
      * Changes a model.block's properties in the current model.grid
-     * @param name - the image path name of the model.block
+     *
+     * @param name      - the image path name of the model.block
      * @param blockType - the type of model.block
-     * @param row - the row of the new model.block
-     * @param col - the column of the new model.block
+     * @param row       - the row of the new model.block
+     * @param col       - the column of the new model.block
      */
     public void addBlock(String name, BlockType blockType, int row, int col) {
         try {
             myGridManager.addBlock(name, blockType, row, col);
-        }
-        catch (BlockCreationException e) {
+        } catch (BlockCreationException e) {
             myAlerts.exceptionDisplay(e.getMessage());
         }
     }
@@ -128,9 +135,10 @@ public class EditorController implements Controller {
     /**
      * Adds a message to a model.block (to be used for communicator blocks). This method returns false if the selected model.block
      * is not a communicator model.block.
+     *
      * @param message - the message to add
-     * @param row - the row of the model.block
-     * @param col - the column of the model.block
+     * @param row     - the row of the model.block
+     * @param col     - the column of the model.block
      * @return whether a message was successfully added to the model.block
      */
     public boolean addMessage(String message, int row, int col) {
@@ -139,8 +147,9 @@ public class EditorController implements Controller {
 
     /**
      * Change the first setting of the gate in controller.editor. Must set the status to open or closed when making a gate
-     * @param row - row of the gate model.block
-     * @param col - column of the gate model.block
+     *
+     * @param row    - row of the gate model.block
+     * @param col    - column of the gate model.block
      * @param isOpen - true if open the gate, false if close the gate
      * @return if the gate status was set correctly
      */
@@ -151,11 +160,12 @@ public class EditorController implements Controller {
     /**
      * Links two blocks (to be used for teleportation or switches). This method returns false if the selected blocks are
      * not linkable (the wrong type of blocks).
-     * @param row1 - the row of the first model.block
-     * @param col1 - the column of the first model.block
+     *
+     * @param row1   - the row of the first model.block
+     * @param col1   - the column of the first model.block
      * @param index1 - the model.grid index in which the first model.block is located
-     * @param row2 - the row of the second model.block
-     * @param col2 - the column of the second model.block
+     * @param row2   - the row of the second model.block
+     * @param col2   - the column of the second model.block
      * @param index2 - the model.grid index in which the second model.block is located
      * @return whether the blocks were successfully linked
      */
@@ -166,11 +176,12 @@ public class EditorController implements Controller {
     /**
      * Unlinks two blocks that were previously linked. This method returns false if the selected blocks are not
      * unlinkable blocks (either the wrong type or the blocks were not linked to begin with).
-     * @param row1 - the row of the first model.block
-     * @param col1 - the column of the first model.block
+     *
+     * @param row1   - the row of the first model.block
+     * @param col1   - the column of the first model.block
      * @param index1 - the model.grid index in which the first model.block is located
-     * @param row2 - the row of the second model.block
-     * @param col2 - the column of the second model.block
+     * @param row2   - the row of the second model.block
+     * @param col2   - the column of the second model.block
      * @param index2 - the model.grid index in which the second model.block is located
      * @return whether the blocks were successfully unlinked
      */
@@ -181,6 +192,7 @@ public class EditorController implements Controller {
     /**
      * Gets the model.block located in a specific row and column in the model.grid. The frontend calls this method in order to
      * render a model.grid model.block by model.block.
+     *
      * @param row - the specific row
      * @param col - the specific column
      * @return the model.block
@@ -193,21 +205,20 @@ public class EditorController implements Controller {
 
     /**
      * Adds a model.player to the model.grid
-     * @param names - the image path names of the model.player (one for each of the four cardinal directions)
+     *
+     * @param names      - the image path names of the model.player (one for each of the four cardinal directions)
      * @param playerName - the name of the model.player
-     * @param row - the row of the model.player
-     * @param col - the column of the model.player
+     * @param row        - the row of the model.player
+     * @param col        - the column of the model.player
      * @return whether the model.player was successfully added
      */
     public boolean addPlayer(List<String> names, String playerName, int row, int col) {
         try {
             return myPlayerManager.addPlayer(names, playerName, row, col, myGridManager.getCurrentIndex());
-        }
-        catch (BadPlayerPlacementException e) {
+        } catch (BadPlayerPlacementException e) {
             myAlerts.exceptionDisplay(e.getMessage());
             return false;
-        }
-        catch (DuplicatePlayerException e2) {
+        } catch (DuplicatePlayerException e2) {
             myAlerts.exceptionDisplay(e2.getMessage());
             return false;
         }
@@ -215,8 +226,9 @@ public class EditorController implements Controller {
 
     /**
      * Adds an attribute for the model.player
-     * @param name - the name of the attribute
-     * @param amount - the initial amount of the attribute
+     *
+     * @param name      - the name of the attribute
+     * @param amount    - the initial amount of the attribute
      * @param increment - the amount by which the attribute increases
      * @param decrement - the amount by which the attribute decreases
      * @return whether the attribute was successfully added
@@ -239,6 +251,7 @@ public class EditorController implements Controller {
 
     /**
      * Moves the model.player to a new location on the current model.grid
+     *
      * @param row - the row of the new location
      * @param col - the column of the new location
      * @return whether or not the model.player was successfully moved
@@ -258,6 +271,7 @@ public class EditorController implements Controller {
 
     /**
      * Gets the column in which the model.player is located
+     *
      * @return the column
      */
     public int getPlayerCol() {
@@ -268,6 +282,7 @@ public class EditorController implements Controller {
 
     /**
      * Saves the controller.editor by taking in the name of the file to contain the information
+     *
      * @param file - the name of the file containing the controller.editor information
      */
     public void saveEditor(String file) {
@@ -281,6 +296,7 @@ public class EditorController implements Controller {
 
     /**
      * Loads an controller.editor that is stored in a file containing the controller.editor information
+     *
      * @param file - the name of the file containing the controller.editor information
      */
     public void loadEditor(String file) {
@@ -292,6 +308,7 @@ public class EditorController implements Controller {
 
     /**
      * Exports the controller.editor to create a game by taking in the name of the file to contain the information
+     *
      * @param file - the name of the file containing the controller.engine information
      */
     public void saveEngine(String file) {
@@ -305,6 +322,7 @@ public class EditorController implements Controller {
 
     /**
      * Creates an controller.engine to run a game while in the controller.editor
+     *
      * @return an controller.engine controller to run the tested game
      */
     public EngineController runEngine() {

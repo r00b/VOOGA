@@ -52,7 +52,7 @@ public class EngineView extends Scene implements Observer {
             }
             myLauncher.launchMenu();
         });
-        
+
     }
 
     public EngineView(Stage stage, Parent root) {
@@ -180,7 +180,7 @@ public class EngineView extends Scene implements Observer {
     }
 
     private void setUpSidePanel() {
-        myEngineSidePanel = new EngineSidePanel(myStage,myRoot,myBuilder,myResources, this, myController);
+        myEngineSidePanel = new EngineSidePanel(myStage, myRoot, myBuilder, myResources, this, myController);
         myController.addObserver(myEngineSidePanel);
         myEngineSidePanel.update(myController, myController.getPlayerName());
     }

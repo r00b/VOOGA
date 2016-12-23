@@ -110,13 +110,13 @@ public class EditorControls {
     public ItemSideMenu getMyItemMenu() {
         return (ItemSideMenu) myItemMenu;
     }
-    
+
     public PlayerSideMenu getPlayerMenu() {
         return (PlayerSideMenu) myPlayerMenu;
     }
-    
-    public GameSideMenu getGridSideMenu(){
+
+    public GameSideMenu getGridSideMenu() {
         return (GameSideMenu) myGridMenu;
     }
-    
+
 }

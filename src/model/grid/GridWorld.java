@@ -1,22 +1,24 @@
 package model.grid;
 
 import java.util.List;
+
 import api.Grid;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
 /**
  * This class manages all of the grids in the game
+ *
  * @author Aninda Manocha, Daniel Chai
  */
 
 @XStreamAlias("gridWorld")
 public class GridWorld {
-	
-	@XStreamImplicit
+
+    @XStreamImplicit
     private List<Grid> myGrids;
 
-	private String myMusicFile;
+    private String myMusicFile;
 
     public GridWorld(GridManager gridManager, String musicFile) {
         myGrids = gridManager.getGridList();

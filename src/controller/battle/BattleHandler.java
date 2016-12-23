@@ -10,13 +10,14 @@ import javafx.stage.Stage;
 
 /**
  * Created by Bill Xiong on 12/12/16.
+ *
  * @author Bill Xiong
  */
 public class BattleHandler {
     private Player player;
     private EnemyBlock enemyBlock;
 
-    public BattleHandler(Player p, EnemyBlock e){
+    public BattleHandler(Player p, EnemyBlock e) {
         player = p;
         enemyBlock = e;
     }

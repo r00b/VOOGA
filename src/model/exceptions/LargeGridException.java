@@ -17,7 +17,7 @@ public class LargeGridException extends Exception implements Alert {
     }
 
     @Override
-    public String getMessage () {
+    public String getMessage() {
         return String.format(LARGE_GRID, TEMP_MY_RESOURCES.getString("maxDim"));
     }
 }

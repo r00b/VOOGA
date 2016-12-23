@@ -7,57 +7,57 @@ import java.util.List;
 
 /**
  * This class handles the visualization of the Player
- * @author Harshil Garg, Pim Chuaylua
  *
+ * @author Harshil Garg, Pim Chuaylua
  */
 
 public class EngineCharacter {
-	
-	private ImageView myImageView;
 
-	private List<String> myImagePaths;
-	
-	public EngineCharacter(List<String> imagePaths, String defaultPath) {
-		myImagePaths = imagePaths;
-		myImageView = new ImageView(defaultPath);
-	}
+    private ImageView myImageView;
 
-	/**
-	 * Given the direction sprite, the list of image paths will be traversed
-	 * to find the appopriate image, and then the ImageView will be set.
-	 *
-	 * @param direction UP, DOWN, LEFT, RIGHT for example
-	 */
-	public void setImage(String direction) {
-		for (String path : myImagePaths) {
-			if (path.contains(direction.toLowerCase())) {
-				myImageView.setImage(new Image(path));
-				break;
-			}
-		}
-	}
+    private List<String> myImagePaths;
 
-	/**
-	 * @return ImageView associated with the EngineCharacter
-	 */
-	public ImageView getImageView() {
-		return myImageView;
-	}
+    public EngineCharacter(List<String> imagePaths, String defaultPath) {
+        myImagePaths = imagePaths;
+        myImageView = new ImageView(defaultPath);
+    }
 
-	public void setPosX(double posX) {
-		myImageView.setLayoutX(posX);
-	}
-	
-	public void setPosY(double posY) {
-		myImageView.setLayoutY(posY);
-	}
+    /**
+     * Given the direction sprite, the list of image paths will be traversed
+     * to find the appopriate image, and then the ImageView will be set.
+     *
+     * @param direction UP, DOWN, LEFT, RIGHT for example
+     */
+    public void setImage(String direction) {
+        for (String path : myImagePaths) {
+            if (path.contains(direction.toLowerCase())) {
+                myImageView.setImage(new Image(path));
+                break;
+            }
+        }
+    }
 
-	public void setSize(double size) {
-		myImageView.setFitWidth(size);
-		myImageView.setFitHeight(size);
-	}
+    /**
+     * @return ImageView associated with the EngineCharacter
+     */
+    public ImageView getImageView() {
+        return myImageView;
+    }
 
-	public double getSize() {
-		return myImageView.getFitWidth();
-	}
+    public void setPosX(double posX) {
+        myImageView.setLayoutX(posX);
+    }
+
+    public void setPosY(double posY) {
+        myImageView.setLayoutY(posY);
+    }
+
+    public void setSize(double size) {
+        myImageView.setFitWidth(size);
+        myImageView.setFitHeight(size);
+    }
+
+    public double getSize() {
+        return myImageView.getFitWidth();
+    }
 }

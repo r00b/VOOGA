@@ -43,11 +43,10 @@ public class GateBlock extends AbstractBlock {
      */
     BlockUpdate toggleOpenStatus() {
         String status;
-        if(this.isWalkable()) {
+        if (this.isWalkable()) {
             setWalkableStatus(CLOSED);
             status = closedString;
-        }
-        else {
+        } else {
             setWalkableStatus(OPEN);
             status = openString;
         }

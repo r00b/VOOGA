@@ -3,6 +3,7 @@ package model.block;
 /**
  * Container class which lets observer know what to do to a changing model.block. Used by the InteractionHandler class to
  * do the correct action based on the type of update to complete and to which model.block it should be applied.
+ *
  * @author Filip Mazurek, Aninda Manocha
  */
 

@@ -9,7 +9,7 @@ import model.interactions.WinInteraction;
  */
 public class WinTalkBlock extends WinBlock {
 
-    public WinTalkBlock(String name,  int row, int col) {
+    public WinTalkBlock(String name, int row, int col) {
         super(name, row, col);
         setWalkableStatus(false);
         addTalkInteraction(new WinInteraction());

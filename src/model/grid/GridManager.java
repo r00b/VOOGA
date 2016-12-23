@@ -18,6 +18,7 @@ import model.player.PlayerUpdate;
 
 /**
  * This class manages all of the grids in the editor or engine
+ *
  * @author Aninda Manocha, Filip Mazurek
  */
 
@@ -49,7 +50,7 @@ public class GridManager extends Observable implements Serializable {
     public void addGrid(int numRows, int numCols) {
         Grid newGrid = new GridInstance(myGrids.size(), numRows, numCols);
         myGrids.add(newGrid);
-        changeGrid(myGrids.size() -1);
+        changeGrid(myGrids.size() - 1);
     }
 
     private void addGrid(Grid grid) {
@@ -71,6 +72,7 @@ public class GridManager extends Observable implements Serializable {
 
     /**
      * Sets the name of the music file
+     *
      * @param file - the file name
      */
     public void addMusic(String file) {
@@ -80,8 +82,9 @@ public class GridManager extends Observable implements Serializable {
     /**
      * Determines if the model.grid can shrink without deleting the model.player. If not, the user receives a warning about deleting
      * the model.player.
+     *
      * @param direction - the direction in which to shrink the model.grid
-     * @param amount - the amount by which the model.grid size should shrink
+     * @param amount    - the amount by which the model.grid size should shrink
      * @return whether the model.grid can shrink without deleting the model.player
      * @throws DeletePlayerWarning
      */
@@ -93,15 +96,15 @@ public class GridManager extends Observable implements Serializable {
                     throw new DeletePlayerWarning();
                 }
             case BOTTOM:
-                if(playerRow >= currentGrid.getNumRows() - amount) {
+                if (playerRow >= currentGrid.getNumRows() - amount) {
                     throw new DeletePlayerWarning();
                 }
             case RIGHT:
-                if(playerColumn >= currentGrid.getNumCols() - amount) {
+                if (playerColumn >= currentGrid.getNumCols() - amount) {
                     throw new DeletePlayerWarning();
                 }
             case LEFT:
-                if(playerColumn < amount) {
+                if (playerColumn < amount) {
                     throw new DeletePlayerWarning();
                 }
         }
@@ -110,8 +113,9 @@ public class GridManager extends Observable implements Serializable {
 
     /**
      * Decreases the size of the current model.grid in a specified direction and by a specified amount
+     *
      * @param direction - the direction in which the size changes
-     * @param amount - the amount by which the model.grid size in the specified direction should shrink
+     * @param amount    - the amount by which the model.grid size in the specified direction should shrink
      * @return whether or not the model.grid shrunk
      */
     public boolean shrinkGrid(GridSizeDirection direction, int amount) {
@@ -147,12 +151,13 @@ public class GridManager extends Observable implements Serializable {
 
     /**
      * Increases the size of the current model.grid in a specified direction and by a specified amount
+     *
      * @param direction - the direction in which the size changes
-     * @param amount - the amount by which the model.grid size in the specified direction should grow
+     * @param amount    - the amount by which the model.grid size in the specified direction should grow
      * @return whether or not the model.grid grew
      * @throws LargeGridException
      */
-    private boolean growGrid(GridSizeDirection direction, int amount) throws LargeGridException{
+    private boolean growGrid(GridSizeDirection direction, int amount) throws LargeGridException {
         int numRows, numCols, rowOffset, colOffset, rowStart, rowEnd, colStart, colEnd;
         numRows = rowEnd = currentGrid.getNumRows();
         numCols = colEnd = currentGrid.getNumCols();
@@ -190,7 +195,7 @@ public class GridManager extends Observable implements Serializable {
 
     public boolean addMessage(String message, int row, int col) {
         Block block = currentGrid.getBlock(row, col);
-        if(block instanceof CommunicatorBlock) {
+        if (block instanceof CommunicatorBlock) {
             ((CommunicatorBlock) block).setMessage(message);
             return true;
         }
@@ -200,17 +205,15 @@ public class GridManager extends Observable implements Serializable {
     public boolean setGateStatus(int row, int col, boolean isOpen) {
         Block block = currentGrid.getBlock(row, col);
 
-        if(block instanceof GateBlock) {
-            if(isOpen) {
+        if (block instanceof GateBlock) {
+            if (isOpen) {
                 ((GateBlock) block).openGate();
                 return true;
-            }
-            else {
+            } else {
                 ((GateBlock) block).closeGate();
                 return true;
             }
-        }
-        else {
+        } else {
             return false;
         }
     }
@@ -236,12 +239,13 @@ public class GridManager extends Observable implements Serializable {
     /**
      * Makes a copy of the grid manager so that one can be used to test the game while in the editor, but the original
      * model.grid manager is still preserved
+     *
      * @return the copy of the grid manager
      */
     public GridManager deepClone() {
         GridManager newGridManager = new GridManager();
-        for(int i = 0; i < myGrids.size(); i++) {
-            GridInstance grid = (GridInstance)myGrids.get(i);
+        for (int i = 0; i < myGrids.size(); i++) {
+            GridInstance grid = (GridInstance) myGrids.get(i);
             GridInstance tempGrid = new GridInstance(i, grid.getNumRows(), grid.getNumCols());
             for (int row = 0; row < grid.getNumRows(); row++) {
                 for (int col = 0; col < grid.getNumCols(); col++) {
@@ -261,6 +265,7 @@ public class GridManager extends Observable implements Serializable {
 
     /**
      * Gets the list of grids
+     *
      * @return the list of grids
      */
     public List<Grid> getGridList() {
@@ -269,6 +274,7 @@ public class GridManager extends Observable implements Serializable {
 
     /**
      * Gets the current model.grid
+     *
      * @return the current model.grid
      */
     public Grid getCurrentGrid() {
@@ -277,6 +283,7 @@ public class GridManager extends Observable implements Serializable {
 
     /**
      * Gets the index of the current model.grid
+     *
      * @return the index
      */
     public int getCurrentIndex() {
@@ -285,6 +292,7 @@ public class GridManager extends Observable implements Serializable {
 
     /**
      * Gets the name (image path) of the model.block located at a specified row and column
+     *
      * @param row - the row
      * @param col - the column
      * @return the name of the model.block
@@ -295,6 +303,7 @@ public class GridManager extends Observable implements Serializable {
 
     /**
      * Gets the name of the music file used for the game
+     *
      * @return the file name
      */
     public String getMusic() {

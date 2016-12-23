@@ -22,13 +22,13 @@ public class TeleportBlock extends AbstractBlock {
     /**
      * Link the model.block to another TeleportBlock.
      *
-     * @param receiver: TeleportBlcok to which stepping on this model.block will send the model.player character
+     * @param receiver:  TeleportBlcok to which stepping on this model.block will send the model.player character
      * @param gridIndex: the model.grid on which the model.block resides (for multiple model.grid levels)
      * @return whether the linkage was successful
      */
     @Override
     public boolean link(Block receiver, int gridIndex) {
-        if(receiver instanceof TeleportBlock) {
+        if (receiver instanceof TeleportBlock) {
             unlink(receiver);
             myReceiveBlock = (TeleportBlock) receiver;
             addStepInteraction(new TeleportInteraction(receiver.getRow(), receiver.getCol(), gridIndex));
@@ -46,8 +46,8 @@ public class TeleportBlock extends AbstractBlock {
     @Override
     public boolean unlink(Block receiver) {
         if (receiver.equals(myReceiveBlock)) {
-            for(Interaction interaction : getStepInteractions()) { // if a new destination is set, old one is erased
-                if(interaction instanceof TeleportInteraction) {
+            for (Interaction interaction : getStepInteractions()) { // if a new destination is set, old one is erased
+                if (interaction instanceof TeleportInteraction) {
                     removeStepInteraction(interaction);
                 }
             }

@@ -17,7 +17,7 @@ public class DuplicatePlayerException extends Exception implements Alert {
     }
 
     @Override
-    public String getMessage () {
+    public String getMessage() {
         return String.format(DUPLICATE_PLAYER, Integer.toString(myRow), Integer.toString(myColumn));
     }
 }

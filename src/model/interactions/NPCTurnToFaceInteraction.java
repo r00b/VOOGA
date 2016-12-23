@@ -5,6 +5,7 @@ import model.block.BlockUpdate;
 import model.block.BlockUpdateType;
 import model.block.blocktypes.NPCBlock;
 import model.block.NPCDirection;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class NPCTurnToFaceInteraction implements Interaction {
             case SOUTH:
                 NPCDirection up = NPCDirection.UP;
                 myNPCBlock.switchDirection(up);
-                status =  up.toString().toLowerCase();
+                status = up.toString().toLowerCase();
                 break;
             case EAST:
                 NPCDirection left = NPCDirection.LEFT;

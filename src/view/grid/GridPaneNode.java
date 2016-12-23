@@ -2,10 +2,9 @@ package view.grid;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
 /**
- * 
  * @author Teddy Franceschi
- *
  */
 public class GridPaneNode {
     private int row;
@@ -35,6 +34,7 @@ public class GridPaneNode {
 
     /**
      * Sets the image of the node
+     *
      * @param image
      */
     public void setImage(ImageView image) {
@@ -43,6 +43,7 @@ public class GridPaneNode {
 
     /**
      * Sets the coordinates of the image in the window
+     *
      * @param x
      * @param y
      */
@@ -53,6 +54,7 @@ public class GridPaneNode {
 
     /**
      * Sets the image size for the node
+     *
      * @param x
      * @param y
      */
@@ -71,13 +73,14 @@ public class GridPaneNode {
         String sol = "";
         return sol;
     }
-    
+
     /**
      * Swaps the values in the node to the one passed
+     *
      * @param node
      * @param typeNum
      */
-    public void swap(GridPaneNode node, int typeNum){
+    public void swap(GridPaneNode node, int typeNum) {
         Image image = new Image(node.getName());
         this.imageView.setImage(image);
         this.imageNum = node.getImageNum();
@@ -85,8 +88,10 @@ public class GridPaneNode {
     }
 
     //Getters
+
     /**
      * Gets row value
+     *
      * @return
      */
     public int getRow() {
@@ -95,6 +100,7 @@ public class GridPaneNode {
 
     /**
      * Gets col value
+     *
      * @return
      */
     public int getCol() {
@@ -103,6 +109,7 @@ public class GridPaneNode {
 
     /**
      * Gets type
+     *
      * @return
      */
     public String getType() {
@@ -111,6 +118,7 @@ public class GridPaneNode {
 
     /**
      * Gets ImageView
+     *
      * @return
      */
     public ImageView getImage() {
@@ -121,6 +129,7 @@ public class GridPaneNode {
 
     /**
      * Sets name
+     *
      * @param a
      */
     public void setName(String a) {
@@ -129,6 +138,7 @@ public class GridPaneNode {
 
     /**
      * Gets name
+     *
      * @return
      */
     public String getName() {
@@ -137,6 +147,7 @@ public class GridPaneNode {
 
     /**
      * Gets image num
+     *
      * @return
      */
     public int getImageNum() {
@@ -150,9 +161,10 @@ public class GridPaneNode {
         String sol = "row: " + row + "\ncol: " + col + "\nname: " + name;
         return sol;
     }
-    
+
     /**
      * Sets col number
+     *
      * @param col
      */
     public void setCol(int col) {
@@ -162,6 +174,7 @@ public class GridPaneNode {
 
     /**
      * Sets row number
+     *
      * @param row
      */
     public void setRow(int row) {

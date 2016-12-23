@@ -2,6 +2,7 @@ package model.player;
 
 /**
  * The enum type for the model.player's direction (orientation)
+ *
  * @author Aninda Manocha
  */
 

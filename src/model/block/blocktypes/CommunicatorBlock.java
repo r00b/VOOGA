@@ -12,21 +12,22 @@ public class CommunicatorBlock extends AbstractBlock {
 
     private String myMessage;
 
-	public CommunicatorBlock(String name, int row, int col) {
-		super(name, row, col);
-	}
+    public CommunicatorBlock(String name, int row, int col) {
+        super(name, row, col);
+    }
 
     /**
      * Sets the message which should be displayed when the model.block is talked to in the game.
      *
      * @param message: message to be displayed
      */
-	public void setMessage(String message) {
-	    addTalkInteraction(new MessageInteraction(this.getRow(), this.getCol(), message));
-	    myMessage = message;
+    public void setMessage(String message) {
+        addTalkInteraction(new MessageInteraction(this.getRow(), this.getCol(), message));
+        myMessage = message;
     }
-    public String getMessage(){
-		return myMessage;
-	}
+
+    public String getMessage() {
+        return myMessage;
+    }
 
 }

@@ -8,7 +8,7 @@ import model.block.blocktypes.BlockType;
  */
 public class MultipleBlockGameObject extends GameObject {
 
-    private String [][] myDisplayPaths;
+    private String[][] myDisplayPaths;
 
     public MultipleBlockGameObject(String iconPath, BlockType blockType, int rows, int columns) {
         super(iconPath, blockType);

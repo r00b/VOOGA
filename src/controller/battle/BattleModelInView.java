@@ -2,33 +2,33 @@ package controller.battle;
 
 /**
  * Interface to expose select methods from the Model to the View.
- * 
+ *
  * @author Daniel Chai
  */
 public interface BattleModelInView {
-	double getPlayerHP();
+    double getPlayerHP();
 
-	double getEnemyHP();
+    double getEnemyHP();
 
-	void setPlayerHP(double playerHP);
+    void setPlayerHP(double playerHP);
 
-	void setEnemyHP(double enemyHP);
+    void setEnemyHP(double enemyHP);
 
-	boolean checkPlayerWon();
+    boolean checkPlayerWon();
 
-	boolean checkPlayerLost();
+    boolean checkPlayerLost();
 
-	void addBattleWon();
+    void addBattleWon();
 
-	void addBattleLost();
+    void addBattleLost();
 
-	int battlesWon();
+    int battlesWon();
 
-	int battlesLost();
+    int battlesLost();
 
-	int getNumPokemon();
+    int getNumPokemon();
 
-	void reduceNumPokemon();
+    void reduceNumPokemon();
 
-	void resetPlayer();
+    void resetPlayer();
 }

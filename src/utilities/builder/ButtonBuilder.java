@@ -20,7 +20,7 @@ public class ButtonBuilder implements ComponentBuilder {
         if (properties.path != null) {
             ImageView buttonImage = new ImageView(new Image(properties.path));
             buttonImage.setPreserveRatio(true);
-            buttonImage.setFitWidth(properties.height/2);
+            buttonImage.setFitWidth(properties.height / 2);
             button = new Button(properties.text, buttonImage);
         } else {
             button = new Button(properties.text);

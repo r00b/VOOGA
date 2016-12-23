@@ -6,12 +6,12 @@ package model.exceptions;
  * @author Filip Mazurek
  */
 public class NegativeGridException extends Exception implements Alert {
-        public NegativeGridException() {
+    public NegativeGridException() {
         super();
     }
 
     @Override
-    public String getMessage () {
+    public String getMessage() {
         return String.format(NEGATIVE_GRID);
     }
 }

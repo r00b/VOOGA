@@ -23,6 +23,7 @@ import model.xml.GridXMLHandler;
 /**
  * This is the controller for the game controller.engine. It allows the backend and frontend to talk to each other while the game
  * is being played.
+ *
  * @author Aninda Manocha, Nisakorn Valyasevi
  */
 
@@ -49,6 +50,7 @@ public class EngineController extends Observable implements Observer, Controller
 
     /**
      * Changes to a different specified model.grid, identified by its index in the list of grids
+     *
      * @param index - the index of the model.grid
      */
     public void changeGrid(int index) {
@@ -58,6 +60,7 @@ public class EngineController extends Observable implements Observer, Controller
     /**
      * Gets the model.block located in a specific row and column in the model.grid. The frontend calls this method in order to
      * render a model.grid model.block by model.block.
+     *
      * @param row - the specific row
      * @param col - the specific column
      * @return the model.block
@@ -68,6 +71,7 @@ public class EngineController extends Observable implements Observer, Controller
 
     /**
      * Gets the model.interactions for the frontend to display
+     *
      * @return the list of model.interactions
      */
     public List<BlockUpdate> getInteractions() {
@@ -76,6 +80,7 @@ public class EngineController extends Observable implements Observer, Controller
 
     /**
      * Gets the number of rows in the current model.grid in order for the frontend to draw the model.grid
+     *
      * @return the number of rows
      */
     public int getNumRows() {
@@ -84,6 +89,7 @@ public class EngineController extends Observable implements Observer, Controller
 
     /**
      * Gets the number of columns in the current model.grid in order for the frontend to draw the model.grid
+     *
      * @return the number of columns
      */
     public int getNumCols() {
@@ -92,6 +98,7 @@ public class EngineController extends Observable implements Observer, Controller
 
     /**
      * Gets the name of the music file for the game
+     *
      * @return the file name
      */
     public String getMusic() {
@@ -103,6 +110,7 @@ public class EngineController extends Observable implements Observer, Controller
     /**
      * Takes in a user input and calls the game instance class to process it. The frontend calls this method once a key
      * input is sent so that the backend can affect the model.player.
+     *
      * @param input - the user input
      */
     public void keyListener(UserInstruction input) {
@@ -114,7 +122,7 @@ public class EngineController extends Observable implements Observer, Controller
     }
 
     public String getPlayerName() {
-    	return gameInstance.getPlayerName();
+        return gameInstance.getPlayerName();
     }
 
     public int getPlayerRow() {
@@ -126,7 +134,7 @@ public class EngineController extends Observable implements Observer, Controller
     }
 
     public PlayerDirection getPlayerDirection() {
-    	return gameInstance.getPlayerDirection();
+        return gameInstance.getPlayerDirection();
     }
 
     public double getPlayerHealth() {
@@ -140,8 +148,9 @@ public class EngineController extends Observable implements Observer, Controller
     /**
      * Passes a model.player update type to the frontend to update the display of the model.player when a model.player's information has
      * been changed (the game instance is observed in order to detect a change in the model.player's information)
+     *
      * @param observableValue - the observable game instance
-     * @param value - the model.player update type
+     * @param value           - the model.player update type
      */
     public void update(Observable observableValue, Object value) {
         if (observableValue instanceof GameInstance) {
@@ -154,6 +163,7 @@ public class EngineController extends Observable implements Observer, Controller
 
     /**
      * Saves the status of a game by saving the model.grid world and model.player in a file
+     *
      * @param file - the myIconPath of the file that will contain the game
      */
     public void saveEngine(String file) {
@@ -162,6 +172,7 @@ public class EngineController extends Observable implements Observer, Controller
 
     /**
      * Loads a game file containing a model.grid world and model.player
+     *
      * @param file - the myIconPath of the file that contains the game
      */
     public void loadEngine(String file) {

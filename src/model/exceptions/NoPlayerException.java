@@ -15,7 +15,7 @@ public class NoPlayerException extends Exception implements Alert {
     }
 
     @Override
-    public String getMessage () {
+    public String getMessage() {
         return String.format(NO_PLAYER);
     }
 }

@@ -24,6 +24,7 @@ import java.util.Observable;
 
 /**
  * This class holds all of the information pertaining to a game instance
+ *
  * @author Aninda Manocha, Filip Mazurek
  */
 
@@ -64,79 +65,76 @@ public class GameInstance extends Observable implements IGameInstance {
 
         switch (input) {
             case UP:
-                if(direction == PlayerDirection.NORTH) {
-                    playerUpdate = handleMovement(row-1, col, PlayerUpdate.ROW);
+                if (direction == PlayerDirection.NORTH) {
+                    playerUpdate = handleMovement(row - 1, col, PlayerUpdate.ROW);
                 } else {
                     playerUpdate = handleDirection(PlayerDirection.NORTH);
                 }
                 break;
             case DOWN:
-                if(direction == PlayerDirection.SOUTH) {
-                    playerUpdate = handleMovement(row+1, col, PlayerUpdate.ROW);
+                if (direction == PlayerDirection.SOUTH) {
+                    playerUpdate = handleMovement(row + 1, col, PlayerUpdate.ROW);
                 } else {
                     playerUpdate = handleDirection(PlayerDirection.SOUTH);
                 }
                 break;
             case RIGHT:
-                if(direction == PlayerDirection.EAST) {
-                    playerUpdate = handleMovement(row, col+1, PlayerUpdate.COLUMN);
+                if (direction == PlayerDirection.EAST) {
+                    playerUpdate = handleMovement(row, col + 1, PlayerUpdate.COLUMN);
                 } else {
                     playerUpdate = handleDirection(PlayerDirection.EAST);
                 }
                 break;
             case LEFT:
-                if(direction == PlayerDirection.WEST) {
-                    playerUpdate = handleMovement(row, col-1, PlayerUpdate.COLUMN);
+                if (direction == PlayerDirection.WEST) {
+                    playerUpdate = handleMovement(row, col - 1, PlayerUpdate.COLUMN);
                 } else {
                     playerUpdate = handleDirection(PlayerDirection.WEST);
                 }
 
-				break;
-			case TALK:
-			    Block block = blockInFacedDirection(row, col, direction);
-			    
-			    if (block instanceof EnemyBlock) {
-			    	Collection<Difficulty> choices = new ArrayList<Difficulty>();
-			    	choices.add(Difficulty.EASY);
-			    	choices.add(Difficulty.MEDIUM);
-			    	choices.add(Difficulty.HARD);
-			    	
-			    	ChoiceDialog box = new ChoiceDialog(Difficulty.EASY, choices);
-			    	box.setHeaderText("Enter battle");
-			    	box.setContentText("Choose Difficulty");
-			    	box.showAndWait();
-			    	
-			    	Difficulty diff = (Difficulty) box.getSelectedItem();
-                    BattleHandler handler = new BattleHandler(myPlayer,(EnemyBlock) block);
+                break;
+            case TALK:
+                Block block = blockInFacedDirection(row, col, direction);
+
+                if (block instanceof EnemyBlock) {
+                    Collection<Difficulty> choices = new ArrayList<Difficulty>();
+                    choices.add(Difficulty.EASY);
+                    choices.add(Difficulty.MEDIUM);
+                    choices.add(Difficulty.HARD);
+
+                    ChoiceDialog box = new ChoiceDialog(Difficulty.EASY, choices);
+                    box.setHeaderText("Enter battle");
+                    box.setContentText("Choose Difficulty");
+                    box.showAndWait();
+
+                    Difficulty diff = (Difficulty) box.getSelectedItem();
+                    BattleHandler handler = new BattleHandler(myPlayer, (EnemyBlock) block);
                     handler.enterBattle(diff);
-			    }
-			    
-			    else if (block instanceof PokemonGiverBlock) {
-			    	PokemonGiverBlock pokeBlock = (PokemonGiverBlock) block;
-			    	
-			    	if (pokeBlock.getHasPokemon()) {
-			    		pokeBlock.setHasPokemon(false);
-					    blockUpdates = block.talkInteract(myPlayer);
-						playerUpdate = PlayerUpdate.TALK;
-						setChanged();
-			    	}
-			    }
-			    
-			    else {
-			    	blockUpdates = block.talkInteract(myPlayer);
-					playerUpdate = PlayerUpdate.TALK;
-					setChanged();
-			    }
-			default:
-				break;
-		}
-		
+                } else if (block instanceof PokemonGiverBlock) {
+                    PokemonGiverBlock pokeBlock = (PokemonGiverBlock) block;
+
+                    if (pokeBlock.getHasPokemon()) {
+                        pokeBlock.setHasPokemon(false);
+                        blockUpdates = block.talkInteract(myPlayer);
+                        playerUpdate = PlayerUpdate.TALK;
+                        setChanged();
+                    }
+                } else {
+                    blockUpdates = block.talkInteract(myPlayer);
+                    playerUpdate = PlayerUpdate.TALK;
+                    setChanged();
+                }
+            default:
+                break;
+        }
+
         notifyObservers(playerUpdate);
     }
 
 
     /**
      * Determines if a model.block is within the bounds of the model.grid
+     *
      * @param block - the model.block
      * @return whether the model.block is in bounds
      */
@@ -146,6 +144,7 @@ public class GameInstance extends Observable implements IGameInstance {
 
     /**
      * Determines if a model.block is walkable
+     *
      * @param block - the model.block
      * @return whether the model.block is walkable
      */
@@ -155,8 +154,9 @@ public class GameInstance extends Observable implements IGameInstance {
 
     /**
      * Handles the case where the model.player moves
-     * @param row - the row of the model.player after it moves
-     * @param col - the column of the model.player after it moves
+     *
+     * @param row          - the row of the model.player after it moves
+     * @param col          - the column of the model.player after it moves
      * @param playerUpdate - the model.player update type depending on whether the row or column changes (ROW or COLUMN)
      * @return the model.player update type
      */
@@ -173,6 +173,7 @@ public class GameInstance extends Observable implements IGameInstance {
 
     /**
      * Handles the case where the model.player changes direction
+     *
      * @param direction - the new direction the model.player will face
      * @return the model.player update type (DIRECTION)
      */
@@ -184,8 +185,9 @@ public class GameInstance extends Observable implements IGameInstance {
 
     /**
      * Gets the model.block that the model.player is facing
-     * @param row - the row of the model.player
-     * @param col - the column of the model.player
+     *
+     * @param row       - the row of the model.player
+     * @param col       - the column of the model.player
      * @param direction - the direction of the model.player
      * @return the model.block the model.player is facing
      */

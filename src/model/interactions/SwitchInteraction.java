@@ -13,7 +13,7 @@ import java.util.List;
  * @author Filip Mazurek, Aninda Manocha
  */
 
-public class SwitchInteraction implements Interaction{
+public class SwitchInteraction implements Interaction {
     private SwitchBlock mySwitchBlock;
 
     public SwitchInteraction(SwitchBlock switchBlock) {

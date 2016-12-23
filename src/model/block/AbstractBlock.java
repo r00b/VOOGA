@@ -3,6 +3,7 @@ package model.block;
 import api.Block;
 import api.Player;
 import model.interactions.Interaction;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,6 +12,7 @@ import java.util.List;
 
 /**
  * Parent class of all blocks.
+ *
  * @author Filip Mazurek, Aninda Manocha
  */
 public abstract class AbstractBlock implements Block, Serializable {
@@ -43,7 +45,7 @@ public abstract class AbstractBlock implements Block, Serializable {
     public List<BlockUpdate> talkInteract(Player player) {
         List<BlockUpdate> blockUpdates = new ArrayList<>();
         if (myTalkInteractions.size() > 0) {
-            for(Interaction interaction : myTalkInteractions) {
+            for (Interaction interaction : myTalkInteractions) {
                 blockUpdates.addAll(interaction.act(player));
             }
         }

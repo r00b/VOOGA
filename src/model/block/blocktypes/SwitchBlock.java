@@ -36,7 +36,7 @@ public abstract class SwitchBlock extends AbstractBlock {
      */
     public List<BlockUpdate> toggleGates() {
         List<BlockUpdate> blockUpdates = new ArrayList<>();
-        for(GateBlock oneGate : myGates) {
+        for (GateBlock oneGate : myGates) {
             blockUpdates.add(oneGate.toggleOpenStatus());
         }
 
@@ -45,11 +45,10 @@ public abstract class SwitchBlock extends AbstractBlock {
         int statusLoc = getName().lastIndexOf('-');
         String status;
 
-        if(onPosition) {
+        if (onPosition) {
             status = offString;
             onPosition = false;
-        }
-        else{
+        } else {
             status = onString;
             onPosition = true;
         }
@@ -63,13 +62,13 @@ public abstract class SwitchBlock extends AbstractBlock {
     /**
      * Accept linkage with GateBlocks.
      *
-     * @param block: model.block to be linked to from this model.block
+     * @param block:     model.block to be linked to from this model.block
      * @param gridIndex: the model.grid on which the model.block resides (for multiple model.grid levels)
      * @return whether the connection was successful
      */
     @Override
     public boolean link(Block block, int gridIndex) {
-        if(block instanceof GateBlock) {
+        if (block instanceof GateBlock) {
             myGates.add((GateBlock) block);
             return true;
         }

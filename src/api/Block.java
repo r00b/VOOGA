@@ -2,6 +2,7 @@ package api;
 
 import model.block.BlockUpdate;
 import model.interactions.Interaction;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -33,7 +34,7 @@ public interface Block extends Serializable {
      * Make a link between this model.block and another selected model.block. Only applies if both blocks may be linked to each
      * other. If model.block has no such ability, default behavior is to return false.
      *
-     * @param block: model.block to be linked to from this model.block
+     * @param block:     model.block to be linked to from this model.block
      * @param gridIndex: the model.grid on which the model.block resides (for multiple model.grid levels)
      * @return whether the link was successful
      */
@@ -50,7 +51,7 @@ public interface Block extends Serializable {
     /**
      * Works to prepare a new image path name for new rendering. This is how blocks in the model.grid change how they look.
      *
-     * @param name: the full original file path name
+     * @param name:   the full original file path name
      * @param status: the new different status
      * @return the new file path
      */

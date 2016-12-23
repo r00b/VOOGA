@@ -6,16 +6,18 @@ import api.Grid;
 import model.block.blocktypes.DecorationBlock;
 import model.exceptions.*;
 import model.grid.GridManager;
+
 import java.util.List;
 import java.util.Observer;
 import java.util.Observable;
 
 /**
  * This class manages the model.player in the controller.editor or controller.engine
+ *
  * @author Aninda Manocha
  */
 
-public class PlayerManager implements Observer{
+public class PlayerManager implements Observer {
 
     private Player myPlayer;
     private Grid myGrid;
@@ -25,14 +27,13 @@ public class PlayerManager implements Observer{
     }
 
     public boolean addPlayer(List<String> names, String playerName, int row, int col, int gridIndex) throws BadPlayerPlacementException, DuplicatePlayerException {
-        if(!(myGrid.getBlock(row, col).isWalkable())) {
+        if (!(myGrid.getBlock(row, col).isWalkable())) {
             throw new BadPlayerPlacementException(row, col);
         }
-        if(myPlayer == null) {
+        if (myPlayer == null) {
             myPlayer = new PlayerInstance(names, playerName, row, col, gridIndex);
             return true;
-        }
-        else {
+        } else {
             throw new DuplicatePlayerException(myPlayer.getRow(), myPlayer.getCol());
         }
     }
@@ -61,12 +62,13 @@ public class PlayerManager implements Observer{
 
     /**
      * Updates the model.player's properties when the model.grid shrinks
-     * @param grid - the observable model.grid manager
+     *
+     * @param grid   - the observable model.grid manager
      * @param update - the type of update (row or column change)
      */
     public void update(Observable grid, Object update) {
         if (grid instanceof GridManager) {
-            PlayerBlockUpdate playerBlockUpdate = (PlayerBlockUpdate)update;
+            PlayerBlockUpdate playerBlockUpdate = (PlayerBlockUpdate) update;
             if (playerBlockUpdate.getUpdate() == PlayerUpdate.ROW) {
                 myPlayer.setRow(myPlayer.getRow() - playerBlockUpdate.getOffset());
             } else {
@@ -77,6 +79,7 @@ public class PlayerManager implements Observer{
 
     /**
      * Gets the model.player
+     *
      * @return the model.player
      * @throws NoPlayerException
      */
@@ -117,6 +120,7 @@ public class PlayerManager implements Observer{
 
     /**
      * Sets the model.player
+     *
      * @param player - the new model.player
      */
     public void setPlayer(Player player) {
@@ -125,6 +129,7 @@ public class PlayerManager implements Observer{
 
     /**
      * Sets the model.grid containing the model.player
+     *
      * @param grid - the new model.grid
      */
     public void setGrid(Grid grid) {

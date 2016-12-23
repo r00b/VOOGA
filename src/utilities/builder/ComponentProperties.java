@@ -62,7 +62,7 @@ public class ComponentProperties<E> {
         this.path = path;
         return this;
     }
-    
+
     public ComponentProperties preserveRatio(boolean preserveRatio) {
         this.preserveRatio = preserveRatio;
         return this;

@@ -5,6 +5,7 @@ import javafx.scene.control.Alert;
 
 /**
  * This class creates JavaFX confirmation boxes that will display a warning to the user
+ *
  * @author Aninda Manocha
  */
 

@@ -1,4 +1,5 @@
 package view.scenes.editor.objects;
+
 import java.util.*;
 
 import model.block.blocktypes.BlockType;

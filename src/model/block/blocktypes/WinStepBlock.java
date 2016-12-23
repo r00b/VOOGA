@@ -9,7 +9,7 @@ import model.interactions.WinInteraction;
  */
 public class WinStepBlock extends WinBlock {
 
-    public WinStepBlock(String name,  int row, int col) {
+    public WinStepBlock(String name, int row, int col) {
         super(name, row, col);
         setWalkableStatus(true);
         addStepInteraction(new WinInteraction());

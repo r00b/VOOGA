@@ -2,6 +2,7 @@ package model.player;
 
 /**
  * This class wraps an update when the model.grid shrinks and the model.player's location needs to be updated.
+ *
  * @author Aninda Manocha
  */
 
@@ -17,6 +18,7 @@ public class PlayerBlockUpdate {
 
     /**
      * Gets the property of the model.player that was updated (either the row or column) when the model.grid shrinks
+     *
      * @return the model.player property
      */
     public PlayerUpdate getUpdate() {
@@ -25,6 +27,7 @@ public class PlayerBlockUpdate {
 
     /**
      * Gets the amount by which the model.player property changes (the offset)
+     *
      * @return the offset
      */
     public int getOffset() {

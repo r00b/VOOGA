@@ -9,9 +9,9 @@ import model.block.AbstractBlock;
  */
 public class DecorationBlock extends AbstractBlock {
 
-	public DecorationBlock(String name, int row, int col) {
-		super(name, row, col);
-		setWalkableStatus(true);
-	}
+    public DecorationBlock(String name, int row, int col) {
+        super(name, row, col);
+        setWalkableStatus(true);
+    }
 
 }

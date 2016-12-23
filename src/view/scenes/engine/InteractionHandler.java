@@ -10,6 +10,7 @@ import java.util.Observable;
 
 /**
  * This class handles model.interactions on the front end.
+ *
  * @author Aninda Manocha, Filip Mazurek
  */
 
@@ -19,7 +20,7 @@ public class InteractionHandler extends Observable {
     private EngineGrid myGridForEngine;
     private Stage myStage;
 
-    public InteractionHandler(Parent root, Stage stage,  UIBuilder uiBuilder, EngineGrid grid) {
+    public InteractionHandler(Parent root, Stage stage, UIBuilder uiBuilder, EngineGrid grid) {
         myRoot = root;
         myStage = stage;
         myUIBuilder = uiBuilder;
@@ -31,8 +32,8 @@ public class InteractionHandler extends Observable {
     }
 
     private void renderTeleportation(int rowdiff, int columndiff) {
-        myGridForEngine.getGroup().setLayoutX(myGridForEngine.getGroup().getLayoutX() - columndiff*50);
-        myGridForEngine.getGroup().setLayoutY(myGridForEngine.getGroup().getLayoutY() - rowdiff*50);
+        myGridForEngine.getGroup().setLayoutX(myGridForEngine.getGroup().getLayoutX() - columndiff * 50);
+        myGridForEngine.getGroup().setLayoutY(myGridForEngine.getGroup().getLayoutY() - rowdiff * 50);
     }
 
     private void winGame() {
