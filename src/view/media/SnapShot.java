@@ -75,12 +75,12 @@ public class SnapShot {
         scene.snapshot(writableImage);
 
 
-        String folderName = "data/screenshots";
+        String folderName = "example-gamefiles/screenshots";
         File file = new File(folderName);
         String[] photos = file.list();
 
         int i = photos.length;
-        File snapShot = new File("data/screenshots/snapshot" + i + ".png");
+        File snapShot = new File("example-gamefiles/screenshots/snapshot" + i + ".png");
         try {
             ImageIO.write(SwingFXUtils.fromFXImage(writableImage, null), "png", snapShot);
         } catch (IOException ex) {
